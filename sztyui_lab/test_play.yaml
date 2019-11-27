@@ -1,0 +1,6 @@
+---
+- hosts: web
+  tasks:
+  - name: test
+    command: cat /etc/motd
+

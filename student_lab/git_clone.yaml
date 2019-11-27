@@ -1,0 +1,10 @@
+---
+- name: cloning git repository
+  become: 'yes'
+  hosts: nodejs
+  tasks:
+
+    - name: cloning repo
+      git:
+        repo: 'https://github.com/ch-e-mistry/DevOps_Training.git'
+        dest: /home/ansibleuser/git

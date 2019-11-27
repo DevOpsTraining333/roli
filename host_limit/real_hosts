@@ -1,0 +1,14 @@
+[web]
+192.168.56.112
+
+[nodejs]
+192.168.56.113
+
+[backup]
+192.168.56.113
+
+[all:vars]
+ansible_connection=ssh
+ansible_user=ansibleuser
+
+

@@ -1,0 +1,18 @@
+---
+- name: This installs nodejs and all dependencies
+  hosts: nodejs
+  become: 'yes'
+  tasks:
+
+  - name: install libselinux-python binary for Ansible to work
+    yum: name=libselinux-python state=present
+
+  - name: install tools for compiling native addons from npm
+    yum: name={{ item }} state=present
+    with_items:
+      - gcc-c++
+      - make
+
+  - name: add NodeSource repository for Node.js 6.0
+    yum: name=https://rpm.nodesource.com/pub_6.x/el/{{ ansible_distribution_major_version }}/{{ ansible_architecture }}/nodesource-release-el{{ ansible_distribution_major_version }}-1.noarch.rpm state=present
+
